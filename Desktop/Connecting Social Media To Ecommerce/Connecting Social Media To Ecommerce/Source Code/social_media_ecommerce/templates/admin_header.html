@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <title>Ecommerce - Free Bootstrap 4 Template by Colorlib</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+  <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+  <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+  <link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %}">
+  <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+  <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <!-- Custom CSS for consistent font, size, and color -->
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+    .navbar-nav .nav-link {
+      font-size: 16px; /* Adjust the font size as needed */
+      color: #ffffff; /* Adjust the text color as needed */
+      font-weight: 400; /* Adjust the font weight */
+    }
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: #f8f9fa; /* Adjust hover/active color */
+    }
+    .dropdown-menu {
+      background-color: #343a40; /* Dark background color for dropdowns */
+      border: none; /* Remove default border */
+    }
+    .dropdown-menu .dropdown-item {
+      color: #ffffff; /* Text color for dropdown items */
+      font-size: 16px; /* Font size for dropdown items */
+    }
+    .dropdown-menu .dropdown-item:hover {
+      background-color: #495057; /* Background color on hover */
+    }
+    .navbar-brand {
+      font-size: 24px; /* Font size for brand */
+      color: #ffffff; /* Color for brand */
+    }
+    .navbar-brand:hover {
+      color: #f8f9fa; /* Brand color on hover */
+    }
+  </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+  <div class="container">
+    <h5 style="color:black; font-weight:bold;">CONNECTING SOCIAL MEDIA ECOMMERCE</h5>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="oi oi-menu"></span> Menu
+    </button>
+
+    <div class="collapse navbar-collapse" id="ftco-nav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a href="{% url 'admin_home' %}" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Notification</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'add_notification' %}" style="color:black">Add Notification</a>
+            <a class="dropdown-item" href="{% url 'view_notification' %}" style="color:black">View Notification</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategory" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownCategory">
+            <a class="dropdown-item" href="{% url 'add_category' %}" style="color:black">Add Category</a>
+            <a class="dropdown-item" href="{% url 'view_category' %}" style="color:black">View Category</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownViews" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Views</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownCategory">
+            <a href="{% url 'admin_viewcontact' %}" class="nav-link" style="color:black">View Contacts</a>
+            <a href="{% url 'admin_viewcustomer' %}" class="nav-link" style="color:black">View Customers</a>
+            <a href="{% url 'view_vendor' %}" class="nav-link" style="color:black">View Vendors</a>
+          </div>
+        </li>
+        <li class="nav-item active">
+          <a href="{% url 'admin_view_all_posts' %}" class="nav-link">View All Posts</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMy account" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownCategory">
+            <a href="{% url 'admin_change_password' %}" class="nav-link" style="color:black">Change Password</a>
+            <a href="{% url 'admin_Logout' %}" class="nav-link" style="color:black">Logout</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</body>
+</html>

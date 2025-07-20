@@ -1,0 +1,66 @@
+{% load static %}
+{% include "customer_header.html" %}
+
+    <div class="hero-wrap" style="background-image: url({% static 'images/S16.jpg' %}); background-attachment:fixed;">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center">
+            <h1 class="mb-3 bread">My Orders Products </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+              <div class="m-3">
+            <table class="table table-bordered">
+    <thead>
+       <tr style="background-color:black">
+           <th>Order</th>
+           <th>Product</th>
+           <th>Title</th>
+           <th>Quantity</th>
+           <th>Cost</th>
+           <th>Discount</th>
+           <th>Total</th>
+           <th>Customer Email</th>
+           <th>Vendor Email</th>
+           <th>Add Review</th>
+
+
+
+       </tr>
+    </thead>
+
+    <tbody>
+    {% for order_products in order_products %}
+        <tr>
+            <td>{{order_products.order.id}}</td>
+            <td>{{order_products.product.id}}</td>
+            <td>{{order_products.title}}</td>
+            <td>{{order_products.quantity}}</td>
+            <td>{{order_products.cost}}</td>
+            <td>{{order_products.discount}}</td>
+            <td>{{order_products.total}}</td>
+            <td>{{order_products.customer_email}}</td>
+            <td>{{order_products.vendor_email}}</td>
+            <td>
+                <a href="{% url 'customer_add_review' id=order_products.product.id %}" class="btn btn-success">Add Review</a> <br>
+
+            </td>
+
+        </tr>
+    {% endfor %}
+    </tbody>
+
+
+
+</table></div>
+
+
+
+
+
+
+{% include "footer.html" %}

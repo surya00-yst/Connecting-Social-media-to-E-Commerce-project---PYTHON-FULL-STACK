@@ -1,0 +1,49 @@
+{% load static %}
+{% include "customer_header.html" %}
+
+    <div class="hero-wrap" style="background-image: url({% static 'images/S16.jpg' %}); background-attachment:fixed;">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center">
+            <h1 class="mb-3 bread">Notifications</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+              <div class="m-3">
+            <table class="table table-bordered">
+    <thead>
+       <tr style="background-color:black">
+           <th>Title</th>
+           <th>Description</th>
+           <th>Date&time</th>
+
+       </tr>
+    </thead>
+
+    <tbody>
+    {% for x in profile %}
+        <tr>
+            <td>{{x.title}}</td>
+            <td>{{x.description}}</td>
+            <td>{{x.date_time}}</td>
+
+
+
+        </tr>
+    {% endfor %}
+    </tbody>
+
+
+
+</table></div>
+
+
+          </div>
+
+
+
+{% include "footer.html" %}

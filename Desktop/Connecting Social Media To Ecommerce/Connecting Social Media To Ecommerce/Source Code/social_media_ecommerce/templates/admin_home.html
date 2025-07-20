@@ -1,0 +1,130 @@
+{% load static %}
+{% include "admin_header.html" %}
+
+    <div class="hero-wrap" style="background-image: url({% static 'images/S18.jpg' %}); background-attachment:fixed;">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-8 ftco-animate text-center">
+                <h1 class="mb-4">ADMIN HOME</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ftco-services">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-md-4 ftco-animate py-5 nav-link-wrap">
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link px-4 active" id="v-pills-electronics-tab" data-toggle="pill" href="#v-pills-electronics" role="tab" aria-controls="v-pills-electronics" aria-selected="true"><span class="mr-3 flaticon-electronics"></span> Electronics</a>
+
+                    <a class="nav-link px-4" id="v-pills-fashion-tab" data-toggle="pill" href="#v-pills-fashion" role="tab" aria-controls="v-pills-fashion" aria-selected="false"><span class="mr-3 flaticon-fashion"></span> Fashion</a>
+
+                    <a class="nav-link px-4" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="false"><span class="mr-3 flaticon-home"></span> Home & Kitchen</a>
+
+                    <a class="nav-link px-4" id="v-pills-beauty-tab" data-toggle="pill" href="#v-pills-beauty" role="tab" aria-controls="v-pills-beauty" aria-selected="false"><span class="mr-3 flaticon-beauty"></span> Beauty</a>
+
+                    <a class="nav-link px-4" id="v-pills-toys-tab" data-toggle="pill" href="#v-pills-toys" role="tab" aria-controls="v-pills-toys" aria-selected="false"><span class="mr-3 flaticon-toys"></span> Toys</a>
+
+                    <a class="nav-link px-4" id="v-pills-sports-tab" data-toggle="pill" href="#v-pills-sports" role="tab" aria-controls="v-pills-sports" aria-selected="false"><span class="mr-3 flaticon-sports"></span> Sports</a>
+                </div>
+            </div>
+            <div class="col-md-8 ftco-animate p-4 p-md-5 d-flex align-items-center">
+
+                <div class="tab-content pl-md-5" id="v-pills-tabContent">
+
+                    <div class="tab-pane fade show active py-5" id="v-pills-electronics" role="tabpanel" aria-labelledby="v-pills-electronics-tab">
+                        <span class="icon mb-3 d-block flaticon-electronics"></span>
+                        <h2 class="mb-4">Electronics</h2>
+                        <p>Explore the latest gadgets and electronics at unbeatable prices. From smartphones to home appliances, we have it all.</p>
+                        <p><a href="#" class="btn btn-primary">Shop Now</a></p>
+                    </div>
+
+                    <div class="tab-pane fade py-5" id="v-pills-fashion" role="tabpanel" aria-labelledby="v-pills-fashion-tab">
+                        <span class="icon mb-3 d-block flaticon-fashion"></span>
+                        <h2 class="mb-4">Fashion</h2>
+                        <p>Stay trendy with our extensive collection of fashion apparel and accessories. Discover styles that fit your unique taste.</p>
+                        <p><a href="#" class="btn btn-primary">Shop Now</a></p>
+                    </div>
+
+                    <div class="tab-pane fade py-5" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                        <span class="icon mb-3 d-block flaticon-home"></span>
+                        <h2 class="mb-4">Home & Kitchen</h2>
+                        <p>Upgrade your home with our selection of kitchen gadgets, furniture, and home decor. Find everything you need for a comfortable living space.</p>
+                        <p><a href="#" class="btn btn-primary">Shop Now</a></p>
+                    </div>
+
+                    <div class="tab-pane fade py-5" id="v-pills-beauty" role="tabpanel" aria-labelledby="v-pills-beauty-tab">
+                        <span class="icon mb-3 d-block flaticon-beauty"></span>
+                        <h2 class="mb-4">Beauty</h2>
+                        <p>Enhance your beauty routine with our range of skincare, makeup, and personal care products. Discover top brands and quality products.</p>
+                        <p><a href="#" class="btn btn-primary">Shop Now</a></p>
+                    </div>
+
+                    <div class="tab-pane fade py-5" id="v-pills-toys" role="tabpanel" aria-labelledby="v-pills-toys-tab">
+                        <span class="icon mb-3 d-block flaticon-toys"></span>
+                        <h2 class="mb-4">Toys</h2>
+                        <p>Find a wide variety of toys for kids of all ages. From educational toys to the latest trends, we have something for everyone.</p>
+                        <p><a href="#" class="btn btn-primary">Shop Now</a></p>
+                    </div>
+
+                    <div class="tab-pane fade py-5" id="v-pills-sports" role="tabpanel" aria-labelledby="v-pills-sports-tab">
+                        <span class="icon mb-3 d-block flaticon-sports"></span>
+                        <h2 class="mb-4">Sports</h2>
+                        <p>Get equipped for your favorite sports with our selection of athletic gear and equipment. Stay active and perform at your best.</p>
+                        <p><a href="#" class="btn btn-primary">Shop Now</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--    <div class="hero-wrap" style="background-image: url({% static 'images/S18.jpg' %}); background-attachment:fixed;">-->
+<!--    <div class="container">-->
+<!--        <div class="row d-md-flex justify-content-end">-->
+<!--            <div class="col-md-6">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-md-12">-->
+<!--                        <a href="#" class="services-wrap ftco-animate">-->
+<!--                            <div class="icon d-flex justify-content-center align-items-center">-->
+<!--                                <span class="ion-ios-arrow-back"></span>-->
+<!--                                <span class="ion-ios-arrow-forward"></span>-->
+<!--                            </div>-->
+<!--                            <h2>Seasonal Discounts</h2>-->
+<!--                            <p>Don't miss out on our exclusive seasonal sales and promotions. Get the best deals before they're gone!</p>-->
+<!--                        </a>-->
+<!--                        <a href="#" class="services-wrap ftco-animate">-->
+<!--                            <div class="icon d-flex justify-content-center align-items-center">-->
+<!--                                <span class="ion-ios-arrow-back"></span>-->
+<!--                                <span class="ion-ios-arrow-forward"></span>-->
+<!--                            </div>-->
+<!--                            <h2>Best Sellers</h2>-->
+<!--                            <p>Check out our most popular products and see what other shoppers are buying. Discover best-sellers now!</p>-->
+<!--                        </a>-->
+<!--                        <a href="#" class="services-wrap ftco-animate">-->
+<!--                            <div class="icon d-flex justify-content-center align-items-center">-->
+<!--                                <span class="ion-ios-arrow-back"></span>-->
+<!--                                <span class="ion-ios-arrow-forward"></span>-->
+<!--                            </div>-->
+<!--                            <h2>New Arrivals</h2>-->
+<!--                            <p>Stay ahead of the trends with our latest arrivals. Be the first to shop the newest products in our store!</p>-->
+<!--                        </a>-->
+<!--                        <a href="#" class="services-wrap ftco-animate">-->
+<!--                            <div class="icon d-flex justify-content-center align-items-center">-->
+<!--                                <span class="ion-ios-arrow-back"></span>-->
+<!--                                <span class="ion-ios-arrow-forward"></span>-->
+<!--                            </div>-->
+<!--                            <h2>Customer Favorites</h2>-->
+<!--                            <p>See what our customers love most. Find top-rated products and read reviews from other shoppers.</p>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    </div>-->
+{% include "footer.html" %}
+

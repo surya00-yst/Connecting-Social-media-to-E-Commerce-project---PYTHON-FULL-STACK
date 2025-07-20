@@ -1,0 +1,89 @@
+{% load static %}
+{% include "customer_header.html" %}
+
+<div class="hero-wrap" style="background-image: url({% static 'images/S32.jpg' %}); background-attachment:fixed;">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+      <div class="col-md-8 ftco-animate text-center">
+        <h1 class="mb-3 bread">ALL USERS</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="ftco-section">
+  <div class="container">
+    <div class="row justify-content-center mb-5 pb-3">
+      <div class="col-md-7 heading-section ftco-animate text-center">
+        <h2 class="mb-4">ALL USERS</h2>
+      </div>
+    </div>
+    <div class="row">
+      {% for x in customers %}
+      <div class="col-md-6 col-lg-3 ftco-animate">
+        <div class="block-2">
+          <div class="flipper">
+            <div class="front" style="background-image: url('{{ x.image.url }}');">
+              <div class="box">
+                <h2>{{x.name}}</h2>
+                <p>{{x.email}}</p>
+              </div>
+            </div>
+            <div class="back">
+              <blockquote>
+                <div class="card">
+                  <div class="card-body">
+                    <p class="text-center"><b>Address:</b> {{x.mandal}}, {{x.district}}</p>
+                  </div>
+                </div>
+              </blockquote>
+              <div class="author d-flex">
+                <div class="image mr-3 align-self-center">
+                  <div class="img" style="background-image: url({% static 'images/doctor-1.jpg' %});"></div>
+                </div>
+
+                {% if x.email in friends_ids %}
+                <button class="btn btn-success" disabled>Friends</button>
+                {% elif x.email in requested_ids %}
+                <button class="btn btn-secondary" disabled>Requested</button>
+                {% else %}
+                <a href="{% url 'add_friends_requests' x.id %}" class="btn btn-success add-friend-btn">Add Friend</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    $('.add-friend-btn').on('click', function(e) {
+      e.preventDefault();
+      var btn = $(this);
+      var url = btn.attr('href');
+
+      $.ajax({
+        url: url,
+        type: 'POST',
+        data: {
+          csrfmiddlewaretoken: '{{ csrf_token }}'
+        },
+        success: function(response) {
+          btn.replaceWith('<button class="btn btn-secondary" disabled>Requested</button>');
+        },
+        error: function(response) {
+          alert(response.responseJSON.msg);
+        }
+      });
+    });
+  });
+</script>
+{% include "footer.html" %}
+

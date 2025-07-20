@@ -1,0 +1,46 @@
+{% load static %}
+{% include "admin_header.html" %}
+
+    <div class="hero-wrap" style="background-image: url({% static 'images/S30.jpg' %}); background-attachment:fixed;">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center">
+            <h1 class="mb-3 bread">Categories</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+              <div class="m-4">
+            <table class="table table-bordered">
+    <thead>
+       <tr style="background-color:black">
+           <th>Title</th>
+           <th>Delete</th>
+
+       </tr>
+    </thead>
+
+    <tbody>
+    {% for x in profile %}
+        <tr>
+            <td>{{x.title}}</td>
+            <td><a href="{% url 'delete_view_category' id=x.id %}" onclick="return confirm('Really Do You Want Delete?')" style="color:red">Delete</a>
+            </td>
+
+
+        </tr>
+    {% endfor %}
+    </tbody>
+
+
+
+</table></div>
+
+
+          </div>
+
+
+
+{% include "footer.html" %}

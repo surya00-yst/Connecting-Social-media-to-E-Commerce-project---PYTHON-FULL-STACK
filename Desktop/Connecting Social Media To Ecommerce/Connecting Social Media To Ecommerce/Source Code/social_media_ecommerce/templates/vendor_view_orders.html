@@ -1,0 +1,78 @@
+{% load static %}
+{% include "vendor_header.html" %}
+
+    <div class="hero-wrap" style="background-image: url({% static 'images/S16.jpg' %}); background-attachment:fixed;">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center">
+            <h1 class="mb-3 bread">Customer Orders</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+              <div class="m-3">
+            <table class="table table-bordered">
+    <thead>
+       <tr style="background-color:black">
+           <th>Customer Email</th>
+           <th>Vendor Email</th>
+           <th>Quantity</th>
+           <th>Cost</th>
+           <th>Discount</th>
+           <th>Total</th>
+           <th>Address</th>
+           <th>Delivery Date</th>
+           <th>Order DateTime</th>
+           <th>Status</th>
+           <th>Orders</th>
+
+
+       </tr>
+    </thead>
+
+    <tbody>
+    {% for orders in orders %}
+        <tr>
+            <td>{{orders.customer_email}}</td>
+            <td>{{orders.vendor_email}}</td>
+            <td>{{orders.quantity}}</td>
+            <td>{{orders.cost}}</td>
+            <td>{{orders.discount}}</td>
+            <td>{{orders.total}}</td>
+            <td>{{orders.address}}</td>
+            <td>{{orders.delivery_date}}</td>
+            <td>{{orders.order_datetime}}</td>
+
+            <td>
+             {% if orders.status == 'Pending' %}
+                <a href="{% url 'accept_order' id=orders.id %}" class="btn btn-success" >Accept</a>&nbsp;&nbsp;
+                <a class="btn btn-danger" href="{% url 'reject_order' id=orders.id %}">Reject</a>
+                {% elif orders.status == 'Accepted' %}
+                <button class="btn btn-warning" disabled="disabled" data-toggle="modal" data-target="#reply_modal">Accepted</button>
+                {% elif orders.status == 'Cancelled' %}
+                <button class="btn btn-warning" disabled="disabled" data-toggle="modal" data-target="#reply_modal">Cancelled</button>
+                {% else %}
+                <button class="btn btn-danger" disabled="disabled" data-toggle="modal" data-target="#reply_modal">Rejected</button>
+                {% endif %}
+            </td>
+            <td><a href="{% url 'vendor_view_orders_products' id=orders.id %}">Orders Products</a></td>
+
+
+
+        </tr>
+    {% endfor %}
+    </tbody>
+
+
+
+</table></div>
+
+
+          </div>
+
+
+
+{% include "footer.html" %}

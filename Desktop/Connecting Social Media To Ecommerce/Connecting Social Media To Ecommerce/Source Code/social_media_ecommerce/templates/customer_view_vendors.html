@@ -1,0 +1,59 @@
+{% load static %}
+{% include "customer_header.html" %}
+
+    <div class="hero-wrap" style="background-image: url({% static 'images/S13.jpg' %}); background-attachment:fixed;">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center">
+            <h1 class="mb-3 bread">Vendor_details</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+          </div>
+
+<section class="ftco-section">
+    	<div class="container">
+    		<div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section ftco-animate text-center">
+            <h2 class="mb-4">Our Vendors</h2>
+          </div>
+        </div>
+        <div class="row">
+            {% for x in vendor %}
+        	<div class="col-md-6 col-lg-3 ftco-animate">
+	          <div class="block-2">
+
+	            <div class="flipper">
+            <div class="front" style="background-image: url('{{ x.image.url }}');">
+                    <div class="box">
+	                  <h2>{{x.name}}</h2>
+	                  <p>{{x.email}}</p>
+	                </div>
+	              </div>
+	              <div class="back">
+	                <!-- back content -->
+	                <blockquote>
+<div class="card">
+  <div class="card-body">
+    <p class="text-center"><b>Address:</b> {{x.mandal}}, {{x.district}}</p>
+  </div>
+</div>
+	                </blockquote>
+	                <div class="author d-flex">
+	                  <div class="image mr-3 align-self-center">
+
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+	          </div> <!-- .flip-container -->
+	        </div>
+            {% endfor %}
+        </div>
+
+    	</div>
+    </section>
+{% include "footer.html" %}

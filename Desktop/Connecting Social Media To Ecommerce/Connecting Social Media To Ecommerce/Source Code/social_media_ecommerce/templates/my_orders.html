@@ -1,0 +1,63 @@
+{% load static %}
+{% include "customer_header.html" %}
+
+    <div class="hero-wrap" style="background-image: url({% static 'images/S16.jpg' %}); background-attachment:fixed;">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center">
+            <h1 class="mb-3 bread">My Orders</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+              <div class="m-3">
+            <table class="table table-bordered table-responsive">
+    <thead>
+       <tr style="background-color:black">
+           <th>Customer Email</th>
+           <th>Vendor Email</th>
+           <th>Quantity</th>
+           <th>Cost</th>
+           <th>Discount</th>
+           <th>Total</th>
+           <th>Address</th>
+           <th>Delivery Date</th>
+           <th>Order DateTime</th>
+           <th>Status</th>
+           <th>Orders</th>
+       </tr>
+    </thead>
+
+    <tbody>
+    {% for orders in orders %}
+        <tr>
+            <td>{{orders.customer_email}}</td>
+            <td>{{orders.vendor_email}}</td>
+            <td>{{orders.quantity}}</td>
+            <td>{{orders.cost}}</td>
+            <td>{{orders.discount}}</td>
+            <td>{{orders.total}}</td>
+            <td>{{orders.address}}</td>
+            <td>{{orders.delivery_date}}</td>
+            <td>{{orders.order_datetime}}</td>
+            <td>{% if orders.status == 'Pending' %}
+
+                                <button class="btn btn-warning" disabled="disabled" data-toggle="modal" data-target="#reply_modal">
+                                    <a href="{% url 'cancel_order' id=orders.id %}" >Cancel</a></button>
+                {% else %}
+                {{orders.status}}
+                {% endif %}
+            </td>
+            <td><a href="{% url 'my_orders_products' id=orders.id %}">Orders Products</a></td>
+
+
+    {% endfor %}
+    </tbody>
+
+
+
+</table></div>
+{% include "footer.html" %}

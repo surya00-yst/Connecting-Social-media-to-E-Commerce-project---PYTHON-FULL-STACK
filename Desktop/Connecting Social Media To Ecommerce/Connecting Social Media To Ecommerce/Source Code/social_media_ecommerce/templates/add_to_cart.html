@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo Form</title>
+    <script>
+        function updateTotalPrice() {
+            var quantity = document.getElementsByName('quantity')[0].value;
+            var price = document.getElementsByName('cost')[0].value;
+            var discount = document.getElementsByName('discount')[0].value;
+
+            var totalPrice = quantity * price - discount*quantity;
+
+            document.getElementsByName('total')[0].value = totalPrice;
+        }
+    </script>
+</head>
+<body>
+{% load static %}
+{% include "customer_header.html" %}
+
+    <div class="hero-wrap" style="background-image: url({% static 'images/S14.jpg' %}); background-attachment:fixed;">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center">
+            <h1 class="mb-3 bread">Add Basket</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="ftco-section contact-section ftco-degree-bg">
+      <div class="container">
+        <div class="row d-flex mb-5 contact-info">
+          <div class="col-md-12 mb-4">
+            <div class="row block-9">
+              <div class="col-md-6 pr-md-5">
+                <form method="post" action="" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <div class="form-group">
+                                    <h6 style="color:red">{{msg}}<h6>
+<br>
+                    <label>Product Id:</label><input type="text" class="form-control" placeholder="Product" name="product" value="{{x.id}}" required readonly>
+                  </div>
+                 <label>Category:</label> <div class="form-group">
+                    <input type="text" class="form-control" placeholder="category" name="title"  value="{{x.category}}" required readonly>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Quantity:</label><input type="number" class="form-control" placeholder="Quantity" value="1" min="1" name="quantity" oninput="updateTotalPrice()" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Cost:</label><input type="number" class="form-control" placeholder="Cost"  value="{{x.price}}" name="cost" oninput="updateTotalPrice()" required readonly>
+                  </div>
+                  <div class="form-group">
+                    <label>Discount:</label><input type="number" class="form-control" placeholder="Discount"  value="{{x.discount}}" name="discount" oninput="updateTotalPrice()" required readonly>
+                  </div>
+                  <div class="form-group">
+                    <label>Total Price::</label><input type="number" class="form-control" placeholder="Total Price"  value="{{x.price}}"  name="total" readonly required>
+                  </div>
+                   <div class="form-group">
+                    <label>Customer Email::</label><input type="email" class="form-control" placeholder="Customer Email"  value="{{email}}" name="customer_email" required readonly>
+                  </div>
+                   <div class="form-group">
+                   <label>Vendor Email:</label> <input type="email" class="form-control" placeholder="Vendor Email" value="{{x.email}}" name="vendor_email" required readonly>
+                  </div>
+
+                  <div class="form-group">
+                    <input type="submit" value="Add Cart " class="btn btn-primary py-3 px-5" placeholder="registered" required>
+                  </div>
+                </form>
+
+              </div>
+              <div class="col-md-6" id="map"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</body>
+</html>
+{% include "footer.html" %}
+
