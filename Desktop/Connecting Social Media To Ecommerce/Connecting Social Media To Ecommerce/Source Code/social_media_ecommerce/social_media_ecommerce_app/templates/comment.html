@@ -1,0 +1,74 @@
+{% load static %}
+{% include "customer_header.html" %}
+
+<div class="hero-wrap" style="background-image: url({% static 'images/S29.jpg' %}); background-attachment: fixed;">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+      <div class="col-md-8 ftco-animate text-center">
+        <h1 class="mb-3 bread">ADD COMMENT</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="ftco-section contact-section ftco-degree-bg">
+  <div class="container">
+    <div class="row d-flex mb-5 contact-info">
+      <div class="col-md-12 mb-4">
+        <div class="row block-9">
+          <div class="col-md-6 pr-md-5">
+            <form method="post">
+              {% csrf_token %}
+              <h6 style="color:green">{{msg}}</h6>
+              <br>
+              <div class="form-group">
+                <label>Customer Email:</label><input type="email" class="form-control" placeholder="Enter Customer Email" name="customer_email" id="email" value="{{email}}" required readonly>
+              </div>
+              <div class="form-group">
+                <label>Post Id:</label><input type="number" class="form-control" placeholder="Post Id" name="post_id"  value="{{profile.id}}" required readonly>
+              </div>
+              <div class="form-group">
+                <label>Enter Your Comment:</label><input type="text" class="form-control" placeholder="Enter Your Comment" name="comment" required>
+              </div>
+
+              <br>
+              <div class="form-group">
+                <input type="submit" value="Add Comment" class="btn btn-primary py-3 px-5" required>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-md-6" id="map"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<center>  <h1 class="mb-3 bread">VIEW COMMENTS</h1></center>
+
+ <table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Customer Email</th>
+            <th>Comment</th>
+            <th>Date&Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for x in comments %}
+        <tr>
+            <td>{{x.id}}</td>
+            <td>{{x.customer_email}}</td>
+            <td>{{x.comment}}</td>
+            <td>{{x.date_time}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% include "footer.html" %}
+

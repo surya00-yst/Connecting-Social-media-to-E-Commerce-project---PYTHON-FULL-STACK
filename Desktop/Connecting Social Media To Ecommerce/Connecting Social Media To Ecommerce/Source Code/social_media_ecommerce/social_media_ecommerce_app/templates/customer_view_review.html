@@ -1,0 +1,46 @@
+{% load static %}
+{% include "customer_header.html" %}
+
+    <div class="hero-wrap" style="background-image: url({% static 'images/S16.jpg' %}); background-attachment:fixed;">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center">
+            <h1 class="mb-3 bread">View Reviews</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+              <div class="m-3">
+            <table class="table table-bordered">
+    <thead>
+       <tr style="background-color:black">
+           <th>ID</th>
+           <th>Customer Email</th>
+           <th>Reviews</th>
+           <th>DateTime</th>
+           <th>Ratings</th>
+
+       </tr>
+    </thead>
+
+    <tbody>
+    {% for reviews in reviews %}
+        <tr>
+            <td>{{reviews.id}}</td>
+            <td>{{reviews.customer_email}}</td>
+            <td>{{reviews.reviews}}</td>
+            <td>{{reviews.date_time}}</td>
+            <td>{{reviews.ratings}}</td>
+
+        </tr>
+    {% endfor %}
+    </tbody>
+
+</table></div>
+
+
+
+{% include "footer.html" %}

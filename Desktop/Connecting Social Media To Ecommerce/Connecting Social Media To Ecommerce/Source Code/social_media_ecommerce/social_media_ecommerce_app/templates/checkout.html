@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo form</title>
+</head>
+<body>
+{% load static %}
+{% include "customer_header.html" %}
+
+    <div class="hero-wrap" style="background-image: url({% static 'images/S35.jpeg' %}); background-attachment:fixed;">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center">
+            <h1 class="mb-3 bread"> Order Here</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   <section class="ftco-section contact-section ftco-degree-bg">
+      <div class="container">
+        <div class="row d-flex mb-5 contact-info">
+          <div class="col-md-12 mb-4">
+
+
+        <div class="row block-9">
+          <div class="col-md-6 pr-md-5">
+            <form method="post" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+        <h6 style="color:red">{{msg}}</h6>
+        <br>
+        <label style="color:black">Customer Email:</label>
+        <input type="email" class="form-control" placeholder="Your Customer Email" value="{{customer_email}}" name="customer_email" required readonly>
+    </div>
+
+    <div class="form-group">
+        <label style="color:black">Vendor Email:</label>
+        <input type="email" class="form-control" placeholder="Your Vendor Email" value="{{vendor_email}}" required readonly name="vendor_email">
+    </div>
+
+    <div class="form-group">
+        <label style="color:black">Quantity:</label>
+        <input type="number" class="form-control" placeholder="Your Quantity" value="{{tq}}" required readonly name="quantity">
+    </div>
+
+    <div class="form-group">
+        <label style="color:black">Cost:</label>
+        <input type="number" class="form-control" placeholder="Cost" value="{{tc}}" name="cost" required readonly>
+    </div>
+
+    <div class="form-group">
+        <label style="color:black">Discount:</label>
+        <input type="number" class="form-control" placeholder="Discount" value="{{td}}" name="discount" required readonly>
+    </div>
+
+    <div class="form-group">
+        <label style="color:black">Total:</label>
+        <input type="number" class="form-control" placeholder="Total" value="{{fc}}" name="total" required readonly>
+    </div>
+
+    <div class="form-group">
+        <label style="color:black">Address:</label>
+        <input type="text" class="form-control" placeholder="Enter Your Address" name="address" required>
+    </div>
+
+    <div class="form-group">
+        <label style="color:black">Delivery Date:</label>
+        <input type="date" class="form-control" placeholder="Delivery Date" name="delivery_date" id="delivery-date" required>
+    </div>
+
+
+
+    <div class="form-group">
+        <input type="submit" value="Order" class="btn btn-primary py-3 px-5" placeholder="Order">
+    </div>
+</form>
+
+          </div>
+          <div class="col-md-6" id="map"></div>
+        </div>
+      </div>
+        </div>
+      </div>
+     </section>
+
+</div>
+
+
+</body>
+</html>
+{% include "footer.html" %}
+
+
+
+
+<script>
+    // Get today's date in 'YYYY-MM-DD' format
+    const today = new Date().toISOString().split('T')[0];
+
+    // Set the minimum date for the delivery date input
+    document.getElementById('delivery-date').setAttribute('min', today);
+</script>
+
+

@@ -1,0 +1,30 @@
+{% load static %}
+{% include "customer_header.html" %}
+<div class="hero-wrap" style="background-image: url({% static 'images/S29.jpg' %}); background-attachment: fixed;">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+      <div class="col-md-8 ftco-animate text-center">
+        <h1 class="mb-3 bread">SEND REQUEST</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="ftco-section contact-section ftco-degree-bg">
+  <div class="container">
+    <div class="row d-flex mb-5 contact-info">
+      <div class="col-md-12 mb-4">
+        <div class="row block-9">
+          <div class="col-md-6 pr-md-5">
+              <form method="POST" action="{% url 'send_friend_request' to_email=customer.email %}">
+    {% csrf_token %}
+    <button type="submit">Send Friend Request</button>
+</form>
+          </div>
+          <div class="col-md-6" id="map"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

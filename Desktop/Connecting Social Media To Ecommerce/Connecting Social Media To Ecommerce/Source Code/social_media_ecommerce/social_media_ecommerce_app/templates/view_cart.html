@@ -1,0 +1,68 @@
+{% load static %}
+{% include "customer_header.html" %}
+
+    <div class="hero-wrap" style="background-image: url({% static 'images/S19.jpg' %}); background-attachment:fixed;">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center">
+            <h1 class="mb-3 bread">Include In Purchase</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+{{msg}}
+              <div class="m-3">
+            <table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Vendor Email</th>
+            <th>Product ID</th>
+            <th>Customer Email</th>
+            <th>Cost</th>
+            <th>Discount</th>
+            <th>Total</th>
+            <th>Quantity</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for x in cate %}
+        <tr>
+            <td>{{x.vendor_email}}</td>
+            <td>{{x.product_id}}</td>
+            <td>{{x.customer_email}}</td>
+            <td>{{x.cost}}</td>
+            <td>{{x.discount}}</td>
+            <td>{{x.total}}</td>
+            <td>{{x.quantity}}</td>
+            <td><a href="{% url 'delete_view_cart' id=x.id %}" onclick="return confirm('Really Do You Want Delete?')" style="color:red">Delete</a></td>
+            <td><a href="{% url 'customer_view_cart_edit' id=x.id %}" onclick="return confirm('Really Do You Want Update?')" style="color:green">Edit</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Summary Table -->
+<table class="table table-bordered">
+    <tr class="table-danger">
+        <th>Total Quantity = {{tq}}</th>
+        <th>Total Cost = {{tc}}</th>
+        <th>Total Discount = {{td}}</th>
+        <th>Final Cost = {{fc}}</th>
+    </tr>
+</table>
+
+<!-- Checkout Button -->
+<div align="center">
+    <a href="{% url 'checkout' %}" class="btn btn-primary">Check Out</a>
+</div>
+
+
+
+
+      </div>
+
+          </div>
+{% include "footer.html" %}

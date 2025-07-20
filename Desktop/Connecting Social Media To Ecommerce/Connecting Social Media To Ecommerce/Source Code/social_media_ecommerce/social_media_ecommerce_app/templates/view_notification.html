@@ -1,0 +1,40 @@
+{% load static %}
+{% include "admin_header.html" %}
+    <div class="hero-wrap" style="background-image: url({% static 'images/S27.jpg' %}); background-attachment:fixed;">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center">
+            <h1 class="mb-3 bread">Notifications</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+<br>
+
+              <div class="m-3">
+            <table class="table table-bordered " >
+    <thead>
+       <tr style="background-color:black">
+           <th>Title</th>
+           <th>Description</th>
+           <th>Date&Time</th>
+           <th>Delete</th>
+       </tr>
+    </thead>
+    <tbody>
+    {% for x in profile %}
+        <tr>
+            <td>{{x.title}}</td>
+            <td>{{x.description}}</td>
+            <td>{{x.date_time}}</td>
+            <td><a href="{% url 'delete_view_notification' id=x.id %}" onclick="return confirm('Really Do You Want Delete?')" style="color:red">Delete</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table></div>
+          </div>
+<br>
+{% include "footer.html" %}

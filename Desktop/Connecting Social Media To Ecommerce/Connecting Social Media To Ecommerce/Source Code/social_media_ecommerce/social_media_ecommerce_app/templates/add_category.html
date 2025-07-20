@@ -1,0 +1,46 @@
+{% load static %}
+{% include "admin_header.html" %}
+
+    <div class="hero-wrap" style="background-image: url({% static 'images/S29.jpg' %}); background-attachment:fixed;">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center">
+            <h1 class="mb-3 bread">Category</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   <section class="ftco-section contact-section ftco-degree-bg">
+      <div class="container">
+        <div class="row d-flex mb-5 contact-info">
+          <div class="col-md-12 mb-4">
+
+
+        <div class="row block-9">
+          <div class="col-md-6 pr-md-5">
+            <form method="post">
+              {% csrf_token %}
+
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Title" name="title" required>
+              </div>
+               <div class="form-group">
+                <input type="submit" value="Add Category" class="btn btn-primary py-3 px-5" placeholder="Login" required>
+              </div>
+
+              {{msg}}
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+
+
+     </section>
+
+
+
+   {% include "footer.html" %}

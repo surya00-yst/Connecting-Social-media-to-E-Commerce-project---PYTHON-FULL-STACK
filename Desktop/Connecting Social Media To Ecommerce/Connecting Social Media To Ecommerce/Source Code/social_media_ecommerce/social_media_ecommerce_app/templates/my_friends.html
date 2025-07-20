@@ -1,0 +1,45 @@
+{% load static %}
+{% include "customer_header.html" %}
+
+    <div class="hero-wrap" style="background-image: url({% static 'images/S16.jpg' %}); background-attachment:fixed;">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center">
+            <h1 class="mb-3 bread">My Friends</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+              <div class="m-3">
+            <table class="table table-bordered">
+    <thead>
+       <tr style="background-color:black">
+           <th>ID</th>
+           <th>EMAIL</th>
+
+       </tr>
+    </thead>
+
+    <tbody>
+    {% for friend in sent_friends  %}
+        <tr>
+            <td>{{friend.id}}</td>
+            <td>{{friend.to_email}}</td>
+            </tr>
+    {% endfor %}
+    {% for friend in received_friends %}
+    <tr>
+        <td>{{friend.id}}</td>
+        <td>{{friend.from_email}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+
+
+
+</table></div>
+
+{% include "footer.html" %}

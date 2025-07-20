@@ -1,0 +1,73 @@
+{% load static %}
+{% include "admin_header.html" %}
+
+<div class="hero-wrap" style="background-image: url({% static 'images/S25.jpg' %}); background-attachment:fixed;">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-8 ftco-animate text-center">
+                <h1 class="mb-3 bread">All Posts</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section ftco-animate text-center">
+                <h2 class="mb-4">ALL POSTS</h2>
+            </div>
+        </div>
+        <div class="row">
+            {% for x in post %}
+            <div class="col-md-6 col-lg-3 ftco-animate">
+                <div class="block-2">
+                    <div class="flipper">
+                        <div class="front" style="background-image: url('{{ x.file.url }}');">
+                            <div class="box">
+                                <h2>{{ x.posts_for }}</h2>
+                                <p>{{ x.email }}</p>
+                                <p>{{ x.title }}</p>
+                                <p>{{ x.description }}</p>
+                                <p>{{ x.date_time }}</p>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <blockquote>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p><b></b>{{ x.posts_for }}, {{ x.email }}, {{ x.title }}, {{ x.description }}, {{ x.date_time }},</p>
+                                    </div>
+                                </div>
+                            </blockquote>
+                           <div class="author d-flex">
+<!--                               <a href="#" class="btn btn-success mr-2">-->
+<!--                                   <i class="fas fa-thumbs-up"></i> Like-->
+<!--                               </a>-->
+
+                               {% if x.status == 'Pending' %}
+                                   <a href="{% url 'accept_all_posts' id=x.id %}" class="btn btn-success mr-2">Accept</a>
+                                   <a class="btn btn-danger" href="{% url 'reject_all_posts' id=x.id %}">Reject</a>
+                               {% elif x.status == 'Accepted' %}
+                                   <button class="btn btn-warning mr-2" disabled="disabled" data-toggle="modal" data-target="#reply_modal">Accepted</button>
+                               {% else %}
+                                   <button class="btn btn-danger mr-2" disabled="disabled" data-toggle="modal" data-target="#reply_modal">Rejected</button>
+                               {% endif %}
+                           </div>
+                           <div class="img" style="background-image: url({% static 'images/ac new.PNG' %});"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% include "footer.html" %}
+
+<!-- Include Font Awesome -->
+<html>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</html>

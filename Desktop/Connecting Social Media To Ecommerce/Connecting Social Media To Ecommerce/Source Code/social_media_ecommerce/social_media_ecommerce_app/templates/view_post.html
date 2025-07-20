@@ -1,0 +1,92 @@
+{% load static %}
+{% include "customer_header.html" %}
+
+<div class="hero-wrap" style="background-image: url({% static 'images/S25.jpg' %}); background-attachment:fixed;">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-8 ftco-animate text-center">
+                <h1 class="mb-3 bread">Posts</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section ftco-animate text-center">
+                <h2 class="mb-4">POSTS</h2>
+            </div>
+        </div>
+        <div class="row">
+            {% for x in post %}
+            <div class="col-md-6 col-lg-3 ftco-animate">
+                <div class="block-2">
+                    <div class="flipper">
+                        <!-- Front content of the post -->
+                        <div class="front" style="background-image: url('{{ x.file.url }}');">
+                            <div class="box">
+                                <h2>{{ x.posts_for }}</h2>
+                                <p>{{ x.email }}</p>
+                                <p>{{ x.title }}</p>
+                                <p>{{ x.description }}</p>
+                                <p>{{ x.date_time }}</p>
+                                <p>{{ x.file }}</p>
+                                <p>{{ x.status }}</p>
+                            </div>
+                        </div>
+
+                        <!-- Back content of the post -->
+                        <div class="back">
+                            <blockquote>
+                                <div class="card">
+                                    <div class="card-body">
+<!--                                        <p><b>{{ x.posts_for }}</b></p>-->
+<!--                                        <p>{{ x.email }}</p>-->
+<!--                                        <p>{{ x.title }}</p>-->
+<!--                                        <p>{{ x.description }}</p>-->
+<!--                                        <p>{{ x.date_time }}</p>-->
+<!--                                        <p>{{ x.status }}</p>-->
+                                    </div>
+                                </div>
+                            </blockquote>
+
+                            <div class="author d-flex align-items-center justify-content-between">
+                                <!-- Like count and like button -->
+                                <div class="like-section">
+                                    <span><i class="fas fa-thumbs-up"></i> {{ x.like_count }} {{ x.like_count|pluralize:"Like,Likes" }}</span>
+                                    {% if x.id in liked_posts %}
+                                    <button disabled class="btn btn-success add-friend-btn mt-2">Liked</button>
+                                    {% else %}
+                                    <a href="{% url 'like_post' x.id %}">
+                                        <button class="btn btn-outline-success add-friend-btn mt-2">Like</button>
+                                    </a>
+                                    {% endif %}
+                                </div>
+
+                                <!-- Comment button -->
+                                <div class="comment-section">
+                                    <a href="{% url 'comment' x.id %}">
+                                        <button class="btn btn-outline-primary add-friend-btn mt-2">Comment</button>
+                                    </a>
+                                </div>
+
+                                <!-- Post Image (Optional) -->
+                                <div class="img" style="background-image: url({% static 'images/ac new.PNG' %}); width: 40px; height: 40px; border-radius: 50%;"></div>
+                            </div>
+                        </div> <!-- End of back -->
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% include "footer.html" %}
+
+<!-- Include Font Awesome -->
+<html>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</html>
